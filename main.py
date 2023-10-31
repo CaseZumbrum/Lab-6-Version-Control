@@ -23,9 +23,26 @@ def encode(password):
             encoded_password += str(int(char)+3)
     return encoded_password
 
+
+#written by Soomin Kim
+def decode(password):
+    l = []
+    for i in password:
+        if i == '2':
+            l.append(str(9))
+        elif i == '1':
+            l.append(str(8))
+        elif i == '0':
+            l.append(str(7))
+        else:
+            l.append(str(int(i)-3))
+    return ''.join(l)
+
+
 '''
 Written by: Case Zumbrum
 '''
+
 if __name__ == "__main__":
     while True:
         choice = int(input("Menu\n-------------\n1. Encode\n2. Decode\n3. Quit\n\nPlease enter an option:"))
@@ -34,7 +51,7 @@ if __name__ == "__main__":
             encoded = encode(password)
             print("Your password has been encoded and stored!\n")
         elif choice == 2:
-            pass
-            #TODO: add decoder function call here
+            decoded = decode(encoded)
+            print(f'The encoded password is {encoded}, and the original password is {decoded}.')
         else:
             exit()
